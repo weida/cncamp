@@ -52,7 +52,7 @@ seq 1 1000 | xargs -I % -P 8 curl  "http://localhost:8090/healthz"
 响应处理 index 和 healthz
 
 
-###服务关闭
+### 服务关闭
 设置signal对应的处理函数, 与linux中直接定义处理函数不同， golang实现中通过chan os.Signal进行传递, 打开框架如下
 
 ```
@@ -74,7 +74,7 @@ go func () {
 <-done
 
 ```
-###其他
+### 其他
 
 可以通过以下命令设置环境变量
 ```
