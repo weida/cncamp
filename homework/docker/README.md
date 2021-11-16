@@ -17,6 +17,13 @@
 make release
 ```
 
+或者在Dockerfile使用多级构建来build， 使用体积更小的alpine。
+
+```
+ docker build -f Dockerfile2 -t caoweida2004/httpserver:latest .
+```
+
+
 
 - 上传镜像
 
@@ -78,7 +85,7 @@ CONTAINER ID   IMAGE                          COMMAND                  CREATED  
             "PidsLimit": null,
 
 # nsenter -n -t 86380
-[root@dev container]# ipaddr
+[root@dev container]# ip addr
 -bash: ipaddr: command not found
 [root@dev container]# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -137,7 +144,7 @@ hello world
 - 关闭
 
 ```
-# docker exec -it f2af4b9b2777 bash
+# docker exec -it f2af4b9b2777 sh
 root@f2af4b9b2777:/# ps -ef
 UID          PID    PPID  C STIME TTY          TIME CMD
 root           1       0  0 16:44 ?        00:00:00 /bin/sh -c /httpserver -P 8090
