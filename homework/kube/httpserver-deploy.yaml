@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: httpserver-config
+data:
+  app.version: "1.2"
+
+weida@garlicspace:~/k8s/homework$ cat httpserver-deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpserver-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: httpserver
+  template:
+    metadata:
+      labels:
+        app: httpserver
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+        - name: httpserver
+          image: caoweida2004/httpserver:V1.1
+          ports:
+            - containerPort: 8090
+          readinessProbe:
+            httpGet:
+              path: "/healthz"
+              port: 8090
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            successThreshold: 2
+          env:
+            - name: VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: httpserver-config
+                  key: app.version
+          resources:
+            limits:
+               cpu: 10m
+               memory: 128Mi
+            requests:
+               cpu: 5m
+               memory: 64Mi
+
