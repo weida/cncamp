@@ -148,10 +148,10 @@ $ seq 1 1000 | xargs -I % -P 8 curl  "http://172.16.9.50:8090/hello"
 - result
 
  Promethus Dashboard
-![avatar](https://github.com/weida/cncamp/tree/master/homework/promethus/pic/prometheus.png)
+ ![avatar](https://github.com/weida/cncamp/blob/master/homework/promethus/pic/prometheus.png)
 
  Grafana Dashboard
-![avatar](https://github.com/weida/cncamp/tree/master/homework/promethus/pic/grafana.png)
+ ![avatar](https://github.com/weida/cncamp/blob/master/homework/promethus/pic/grafana.png)
 
 
 
