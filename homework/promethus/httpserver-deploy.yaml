@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpserver-metric
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpserver
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8090"
+      labels:
+        app: httpserver
+
+    spec:
+      containers:
+        - name: httpserver
+          image: caoweida2004/httpserver:v1.2
+          ports:
+            - containerPort: 8090
+
