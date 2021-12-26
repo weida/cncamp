@@ -216,10 +216,10 @@ $ curl -k https://httpserver-istio.com/test
 $ curl -k https://httpserver-istio.com/trace
 ```
 
- Promethus Dashboard
+ Jaeger Dashboard
 ![avatar](https://github.com/weida/cncamp/tree/master/homework/istio/pic/jaegerboard.png)
 
- Grafana Dashboard
+ Jaeger Dashboard
 ![avatar](https://github.com/weida/cncamp/tree/master/homework/istio/pic/jaegeritem.png)
 
 
