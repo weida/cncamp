@@ -219,10 +219,10 @@ $ curl -k https://httpserver-istio.com/trace
  Jaeger Dashboard
 ![avatar](https://github.com/weida/cncamp/blob/master/homework/istio/pic/jaegerboard.png)
 
- Jaeger Dashboard
+ Jaeger item
 ![avatar](https://github.com/weida/cncamp/blob/master/homework/istio/pic/jaegeritem.png)
 
 
 ## referece
-https://istio.io/latest/docs/setup/getting-started/
-https://github.com/cncamp/101/tree/master/module12/
+- https://istio.io/latest/docs/setup/getting-started/
+- https://github.com/cncamp/101/tree/master/module12/
