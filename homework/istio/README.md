@@ -1,4 +1,4 @@
-#  httpserver 部署到 istio 集群
+# httpserver 服务以 Istio Ingress Gateway 的形式发布
 
 ##  build docker image
 
