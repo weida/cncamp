@@ -1,0 +1,32 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: httpsserver
+spec:
+  gateways:
+    - httpsserver
+  hosts:
+    - '*'
+  http:
+  - name : "test-route"
+    match:
+    - uri:
+        prefix: /test
+    rewrite:
+      uri: /healthz
+    route:
+      - destination:
+          host: httpserver-service0.istiospace.svc.cluster.local
+          port:
+            number: 80
+  - name : "service0-route"
+    match:
+    - uri:
+        prefix: /trace
+    rewrite:
+      uri: /hello
+    route:
+      - destination:
+          host: httpserver-service0.istiospace.svc.cluster.local
+          port:
+            number: 80
