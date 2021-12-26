@@ -1,0 +1,44 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: httpsserver
+spec:
+  gateways:
+    - httpsserver
+  hosts:
+    - httpserver-istio.com
+  http:
+  - name: "hello-route"
+    match:
+    - port: 443
+    - uri:
+        prefix: "/istio/hello"
+    rewrite:
+      uri: "/hello"
+    route:
+      - destination:
+          host: httpserver-service1.istiospace.svc.cluster.local
+          port:
+            number: 80
+  - name: "world-route"
+    match:
+    - port: 443
+    - uri:
+        prefix: "/istio/world"
+    rewrite:
+      uri: "/world"
+    route:
+      - destination:
+          host: httpserver-service2.istiospace.svc.cluster.local
+          port:
+            number: 80
+  - name: "root-route"
+    match:
+    - port: 443
+    - uri:
+        prefix: "/"
+    route:
+      - destination:
+          host: httpserver-service0.istiospace.svc.cluster.local
+          port:
+            number: 80
